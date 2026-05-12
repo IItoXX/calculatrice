@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/calc/:op",
+      "destination": "https://calculatrice-xum5.onrender.com/calc/:op"
+    },
+    {
+      "source": "/health",
+      "destination": "https://calculatrice-xum5.onrender.com/health"
+    }
+  ]
+}
