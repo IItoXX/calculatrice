@@ -1,0 +1,10 @@
+services:
+  calculatrice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: calculatrice:latest
+    container_name: calculatrice
+    # stdin_open et tty pour permettre l'interaction CLI
+    stdin_open: true
+    tty: true

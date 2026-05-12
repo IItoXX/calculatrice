@@ -1,0 +1,16 @@
+{
+  "name": "calculatrice-web",
+  "version": "1.0.0",
+  "description": "Calculatrice TypeScript avec interface web",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2"
+  }
+}

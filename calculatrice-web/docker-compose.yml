@@ -1,0 +1,12 @@
+services:
+  calculatrice-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: calculatrice-web:latest
+    container_name: calculatrice-web
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    restart: unless-stopped

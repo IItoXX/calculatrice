@@ -1,0 +1,16 @@
+{
+  "name": "calculatrice-api",
+  "version": "1.0.0",
+  "description": "Calculatrice TypeScript exposée en HTTP (testable avec curl)",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2"
+  }
+}
