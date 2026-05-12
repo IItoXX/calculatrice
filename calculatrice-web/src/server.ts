@@ -15,6 +15,7 @@ import {
 const PORT = parseInt(process.env.PORT || "8080", 10);
 const HOST = "0.0.0.0";
 const PUBLIC_DIR = resolve(__dirname, "../public");
+const SERVE_STATIC = process.env.SERVE_STATIC !== "false";
 
 type OperationBinaire = (a: number, b: number) => number;
 type OperationUnaire = (a: number) => number;
@@ -107,6 +108,16 @@ function gererRequete(req: IncomingMessage, res: ServerResponse) {
   const matchCalc = chemin.match(/^\/calc\/([a-z]+)\/?$/);
   if (matchCalc) {
     return gererCalc(res, matchCalc[1], url);
+  }
+
+  if (!SERVE_STATIC) {
+    if (chemin === "/") {
+      return envoyerJSON(res, 200, {
+        service: "calculatrice-api",
+        endpoints: ["/health", "/calc/<op>?a=&b="],
+      });
+    }
+    return envoyerJSON(res, 404, { error: "Route inconnue" });
   }
 
   const cheminFichier = chemin === "/" ? "/index.html" : chemin;
