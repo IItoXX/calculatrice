@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: calculator-api:latest
+    container_name: calculator-api
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000

@@ -1,0 +1,36 @@
+name: Tests Jest
+
+on:
+  push:
+    paths:
+      - "atelier-jest/**"
+      - ".github/workflows/test-jest.yml"
+  pull_request:
+    paths:
+      - "atelier-jest/**"
+      - ".github/workflows/test-jest.yml"
+
+jobs:
+  test:
+    name: Lancer Jest
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: atelier-jest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: atelier-jest/package.json
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Lancer les tests
+        run: npm test
