@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: calculator-api-py:latest
+    container_name: calculator-api-py
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
